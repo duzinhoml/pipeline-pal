@@ -1,20 +1,20 @@
-# name: CI - Cypress Component Tests
+name: CI - Cypress Component Tests
 
-# on:
-#   pull_request:
-#     branches: [develop]
+on:
+  pull_request:
+    branches: [develop]
 
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 18
-#       - name: Install dependencies
-#         run: npm install
-#       - name: Cypress component tests
-#         run: npm run cypress:component
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Cypress component tests
+        run: npm run cypress:component
