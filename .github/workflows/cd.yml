@@ -1,22 +1,22 @@
-# name: CD - Render Deploy
+name: CD - Render Deploy
 
-# on:
-#   push:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
 
-# jobs:
-#   render-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 18
-#       - name: Install dependencies
-#         run: npm install
-#       - name: Deploy to Render
-#         run: curl -X POST -H "Content-Type: application/json" -d '{}' $RENDER_DEPLOY_HOOK
-#         env:
-#           RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+jobs:
+  render-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy to Render
+        run: curl -X POST -H "Content-Type: application/json" -d '{}' $RENDER_DEPLOY_HOOK
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
